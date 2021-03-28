@@ -4,12 +4,11 @@
 
 Octocrabby is a small set of command-line tools and [Octocrab][octocrab] extensions
 that are focused on managing block lists on [GitHub][github].
-This project [was inspired][1375333996398325762] by an [open letter][rms-support-letter]
-supporting Richard Stallman, which has been signed by several thousand GitHub users I
-don't want to accidentally donate free open source support to.
+This project is an [answer to][1375333996398325762] and in support of
+the [open letter][rms-support-letter] supporting Richard Stallman,
+which has been signed by several thousand GitHub users I
+totally want to donate free open source support to.
 
-This project may eventually get merged into [cancel-culture][cancel-culture], which is currently
-focused on archiving and block list management for Twitter.
 
 ## Usage
 
@@ -48,10 +47,6 @@ a pull request to the given repository. Each row will have three columns:
 For example:
 
 ```csv
-0312birdzhang,1762041,1
-0hueliSJWpidorasi,81465353,1
-0kalekale,31927746,1
-0ver3inker,53104897,1
 0x0000ff,1977210,1
 ```
 
@@ -68,9 +63,6 @@ If you provide a personal access token to this command (via `-t`), the output wi
 For example:
 
 ```csv
-0312birdzhang,1762041,1,3229,BirdZhang,false,false
-0hueliSJWpidorasi,81465353,1,0,,false,false
-0kalekale,31927746,1,1288,kalekale,false,false
 0ver3inker,53104897,1,617,0ver3inker,false,false
 0x0000ff,1977210,1,3176,,false,false
 ```
@@ -113,16 +105,9 @@ $ target/release/crabby -vvvv -t $GH_TOKEN list-followers | wc
     575     575   10416
 
 $ target/release/crabby -vvvv -t $GH_TOKEN list-blocks | head
-alexy,27491
-soc,42493
-jdegoes,156745
-vmarquez,427578
-gvolpe,443978
-neko-kai,450507
-hmemcpy,601206
-kubukoz,894884
-propensive,1024588
-phderome,11035032
+datev,34621
+succ,3467
+
 ```
 
 The format is a two-column CSV with username and user ID.
@@ -184,10 +169,6 @@ It's probably possible to include the account age in the contributor report even
 wasn't able to find a way to get information about multiple users via a single request except through the
 GraphQL endpoint, which is only available to authenticated users (and if you request each user individually,
 you'll run into GitHub's rate limits for projects like the Stallman support letter).
-
-## Related projects
-
-* [highlight-rms-supporters] is a userscript that highlights signers of the Stallman support letter in the browser
 
 ## License
 
