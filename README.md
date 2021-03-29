@@ -4,10 +4,14 @@
 
 Octocrabby is a small set of command-line tools and [Octocrab][octocrab] extensions
 that are focused on managing block lists on [GitHub][github].
-This project is an [answer to][1375333996398325762] and in support of
-the [open letter][rms-support-letter] supporting Richard Stallman,
-which has been signed by several thousand GitHub users I
-totally want to donate free open source support to.
+
+This project is an [answer to][1375333996398325762] a
+[similar tool designed to facilitate cyber-bullying and harassment](https://github.com/travisbrown/octocrabby).
+
+It identifies those with the courage to stand up and fight online
+harassment and abuse, and have signed the [open letter][rms-support-letter]
+supporting Richard Stallman, which has been signed by thousands of
+GitHub users (who I totally want to donate free open source support to!)
 
 
 ## Usage
@@ -91,8 +95,6 @@ $ egrep -r "true$" rms-contributors.csv | wc
       0       0       0
 ```
 
-Good.
-
 ### Follow and block list export
 
 The CLI also allows you to export lists of users you follow, are followed by, and block:
@@ -112,76 +114,6 @@ succ,3467
 
 The format is a two-column CSV with username and user ID.
 
-In general it's probably a good idea to save the output of the `list-blocks` command before using
-the mass-blocking functionality in the next section.
-
-### Mass blocking
-
-The CLI also includes a `block-users` command that accepts CSV rows from standard input. It ignores all
-columns except the first, which it expects to be a GitHub username. This is designed to make it convenient
-to save the output of `list-pr-contributors`, manually remove accounts if needed, and then block the rest.
-
-```
-target/release/crabby -vvv -t $GH_TOKEN block-users < rms-contributors.csv
-08:46:41 [WARN] 0hueliSJWpidorasi was already blocked
-08:46:41 [WARN] 0kalekale was already blocked
-...
-```
-
-If you've set the logging level to at least `WARN` (via the `-vvv` or `-vvvv` options), it will show you
-a message for each user who is either newly blocked or was already blocked.
-
-### Other tools
-
-You can view all currently supported commands with `-h`:
-
-```
-crabby 0.1.0
-Travis Brown <travisrobertbrown@gmail.com>
-
-USAGE:
-    crabby [FLAGS] [OPTIONS] <SUBCOMMAND>
-
-FLAGS:
-    -h, --help       Prints help information
-    -v, --verbose    Logging verbosity
-    -V, --version    Prints version information
-
-OPTIONS:
-    -t, --token <token>    A GitHub personal access token (not needed for all operations)
-
-SUBCOMMANDS:
-    block-users             Block a list of users provided in CSV format to stdin
-    check-follow            Check whether one user follows another
-    help                    Prints this message or the help of the given subcommand(s)
-    list-blocks             List accounts the authenticated user blocks in CSV format to stdout
-    list-followers          List the authenticated user's followers in CSV format to stdout
-    list-following          List accounts the authenticated user follows in CSV format to stdout
-    list-pr-contributors    List PR contributors for the given repository
-```
-
-## Caveats and future work
-
-I wrote this thing yesterday afternoon. It's completely untested. It might not work. For your own safety
-please don't use it with a personal access token with unneeded permissions (i.e. anything except `user`).
-
-It's probably possible to include the account age in the contributor report even when unauthenticated—I just
-wasn't able to find a way to get information about multiple users via a single request except through the
-GraphQL endpoint, which is only available to authenticated users (and if you request each user individually,
-you'll run into GitHub's rate limits for projects like the Stallman support letter).
-
 ## License
 
 This project is licensed under the Mozilla Public License, version 2.0. See the LICENSE file for details.
-
-[1375333996398325762]: https://twitter.com/travisbrown/status/1375333996398325762
-[cancel-culture]: https://github.com/travisbrown/cancel-culture
-[cargo]: https://doc.rust-lang.org/cargo/
-[data-directory]: https://github.com/travisbrown/octocrabby/tree/main/data
-[github]: https://github.com/
-[github-token]: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
-[highlight-rms-supporters]: https://github.com/sticks-stuff/highlight-RMS-supporters
-[octocrab]: https://github.com/XAMPPRocky/octocrab
-[rms-support-letter]: https://github.com/rms-support-letter/rms-support-letter.github.io
-[rust]: https://www.rust-lang.org/
-[rust-installation]: https://doc.rust-lang.org/book/ch01-01-installation.html
