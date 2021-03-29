@@ -5,7 +5,7 @@ extensions that are focused on managing block lists on GitHub.
 
 This project is an answer to a [similar tool designed to facilitate cyber-bullying, abuse, and harassment](https://github.com/travisbrown/octocrabby).
 
-It identifies GitHub users with the courage to stand against organized cyberbullying,
+It identifies GitHub users with the courage to stand up against organized cyberbullying,
 mob harassment, and online abuse, who have signed the open letter in support of Richard Stallman.
 
 This letter has been signed by thousands of GitHub users
