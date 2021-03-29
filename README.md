@@ -3,8 +3,7 @@
 Octocrabby is a small set of command-line tools and [Octocrab][octocrab]
 extensions that are focused on managing block lists on [GitHub][github].
 
-This project is an [answer to][1375333996398325762] a
-[similar tool designed to facilitate cyber-bullying and harassment](https://github.com/travisbrown/octocrabby).
+This project is an answer to a [similar tool designed to facilitate cyber-bullying and harassment](https://github.com/travisbrown/octocrabby).
 
 It identifies those with the courage to stand up and fight online
 harassment and abuse by signing the [open letter][rms-support-letter]
