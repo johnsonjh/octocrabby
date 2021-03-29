@@ -1,33 +1,28 @@
 # GitHub block list management
 
-Octocrabby is a small set of command-line tools and [Octocrab][octocrab]
-extensions that are focused on managing block lists on [GitHub][github].
+Octocrabby is a small set of command-line tools and Octocrab
+extensions that are focused on managing block lists on GitHub.
 
-This project is an answer to a [similar tool designed to facilitate cyber-bullying and harassment](https://github.com/travisbrown/octocrabby).
+This project is an answer to a [similar tool designed to facilitate cyber-bullying, abuse, and harassment](https://github.com/travisbrown/octocrabby).
 
-It identifies those with the courage to stand up and fight online
-harassment and abuse by signing the [open letter][rms-support-letter]
-supporting Richard Stallman. 
+It identifies GitHub users with the courage to stand against organized cyberbullying,
+mob harassment, and online abuse, who have signed the open letter in support of Richard Stallman.
 
 This letter has been signed by thousands of GitHub users
 (who I totally want to donate free open source support to!)
 
 ## Usage
 
-This project is made with [Rust][rust], so you need Rust and [Cargo][cargo]
-installed to use it. If you've followed [these instructions][rust-installation]
-and cloned this repo locally, you can build the CLI by running the following
-command from the project directory:
+You need Rust and Cargo installed to build the program.
+
+You can build the CLI by running the following command from the project directory:
 
 ```bash
 $ cargo build --release
 ```
 
-Most operations require a [GitHub personal access token][github-token], which
-you currently have to provide as a command-line option. If you want to use
-the mass-blocking functionality, you'll need to select the `user` scope when
-creating your token. If you only want to generate reports or export your
-follower or block lists, that shouldn't be necessary.
+Some operations require a GitHub personal access token, which you
+currently have to provide as a command-line option.
 
 ### Contributor reports
 
@@ -68,12 +63,9 @@ the output will include several additional columns:
 For example:
 
 ```csv
-0ver3inker,53104897,1,617,0ver3inker,false,false
-0x0000ff,1977210,1,3176,,false,false
+auser,53104897,1,617,auser,false,false
+buser,1977210,1,3176,userb,false,false
 ```
-
-You can find copies of the output of this command in this project's
-[data directory][data-directory].
 
 This allows us to see how many of the signatories were using single-purpose
 throwaway accounts, for example, as of this morning, only 82 of the 3,000+
@@ -101,7 +93,7 @@ $ egrep -r "true$" rms-contributors.csv | wc
 ### Follow and block list export
 
 The CLI also allows you to export lists of users you follow,
-are followed by, and block:
+are followed by, or block:
 
 ```bash
 $ target/release/crabby -vvvv -t $GH_TOKEN list-following | wc
@@ -118,4 +110,5 @@ The format is a two-column CSV with username and user ID.
 ## License
 
 This project is licensed under the Mozilla Public License, version 2.0.
+
 See the LICENSE file for details.
