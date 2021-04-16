@@ -1,28 +1,31 @@
 # GitHub block list management
 
-Octocrabby is a small set of command-line tools and Octocrab
-extensions that are focused on managing block lists on GitHub.
+Octocrabby is a small set of command-line tools and Octocrab extensions that are
+focused on managing block lists on GitHub.
 
-This project is an answer to a [similar tool designed to facilitate cyber-bullying, abuse, and harassment](https://github.com/travisbrown/octocrabby).
+This project is an answer to a
+[similar tool designed to facilitate cyber-bullying, abuse, and harassment](https://github.com/travisbrown/octocrabby).
 
-It identifies GitHub users with the courage to stand up against organized cyberbullying,
-mob harassment, and online abuse, who have signed the open letter in support of Richard Stallman.
+It identifies GitHub users with the courage to stand up against organized
+cyberbullying, mob harassment, and online abuse, who have signed the open letter
+in support of Richard Stallman.
 
-This letter has been signed by thousands of GitHub users
-(who I totally want to donate free open source support to!)
+This letter has been signed by thousands of GitHub users (who I totally want to
+donate free open source support to!)
 
 ## Usage
 
 You need Rust and Cargo installed to build the program.
 
-You can build the CLI by running the following command from the project directory:
+You can build the CLI by running the following command from the project
+directory:
 
 ```bash
 $ cargo build --release
 ```
 
-Some operations require a GitHub personal access token, which you
-currently have to provide as a command-line option.
+Some operations require a GitHub personal access token, which you currently have
+to provide as a command-line option.
 
 ### Contributor reports
 
@@ -35,9 +38,9 @@ $ target/release/crabby \
   -r rms-support-letter/rms-support-letter.github.io
 ```
 
-If no token is provided, this command will output a CSV document with a
-row for each GitHub user who contributed a pull request to the given
-repository. Each row will have three columns:
+If no token is provided, this command will output a CSV document with a row for
+each GitHub user who contributed a pull request to the given repository. Each
+row will have three columns:
 
 1. GitHub username
 2. GitHub user ID
@@ -49,8 +52,8 @@ For example:
 0x0000ff,1977210,1
 ```
 
-If you provide a personal access token to this command (via `-t`),
-the output will include several additional columns:
+If you provide a personal access token to this command (via `-t`), the output
+will include several additional columns:
 
 1. GitHub username
 2. GitHub user ID
@@ -92,8 +95,8 @@ $ egrep -r "true$" rms-contributors.csv | wc
 
 ### Follow and block list export
 
-The CLI also allows you to export lists of users you follow,
-are followed by, or block:
+The CLI also allows you to export lists of users you follow, are followed by, or
+block:
 
 ```bash
 $ target/release/crabby -vvvv -t $GH_TOKEN list-following | wc
