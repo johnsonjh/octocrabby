@@ -98,9 +98,11 @@ are followed by, or block:
 ```bash
 $ target/release/crabby -vvvv -t $GH_TOKEN list-following | wc
 ```
+
 ```bash
 $ target/release/crabby -vvvv -t $GH_TOKEN list-followers | wc
 ```
+
 ```bash
 $ target/release/crabby -vvvv -t $GH_TOKEN list-blocks | head
 ```
