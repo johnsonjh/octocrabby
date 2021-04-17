@@ -1,4 +1,4 @@
-# GitHub block list management
+# GitHub Block List Management
 
 Octocrabby is a small set of command-line tools and Octocrab extensions that are
 focused on managing block lists on GitHub.
